@@ -3,6 +3,7 @@ import MainWrapper from '../components/Wrapper/MainWrapper'
 import HomeSectionOne from '../components/Home/HomeSectionOne'
 import WhyChooseUs from '../components/Home/WhyChooseUs'
 import BecomeInstructor from '../components/Home/BecomeInstructor'
+import ProgressCheck from '../components/Home/ProgressCheck'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <HomeSectionOne />
         <WhyChooseUs />
         <BecomeInstructor />
+        <ProgressCheck />
 
       </MainWrapper>
     </>

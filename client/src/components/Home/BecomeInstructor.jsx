@@ -20,8 +20,10 @@ const BecomeInstructor = () => {
                     return <Paragraph styles="md:text-lg text-md" key={index}>👉 {item.benefit}</Paragraph>
                 })
             }
-
-            <Button styles="bg-yellow-100" >Become an Instructor</Button>
+              
+            <Button styles="bg-yellow-100 w-max" path="/login">
+              Become an Instructor 
+            </Button>
 
         </div>
     </>
