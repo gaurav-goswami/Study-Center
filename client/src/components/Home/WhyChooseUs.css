@@ -1,0 +1,9 @@
+.icon-container::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 7%;
+    right: 90%;
+    height: 40px;
+    border-left: 1px dotted rgb(205, 202, 202);
+}

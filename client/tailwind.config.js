@@ -125,7 +125,7 @@ export default{
         700: "#2D2D2D",
         800: "#171717",
         900: "#141414",
-      },
+      }
     },
     extend: {
       maxWidth: {

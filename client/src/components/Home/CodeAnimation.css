@@ -1,0 +1,20 @@
+.code-animation-gradient {
+  background-image: linear-gradient(
+    110deg,
+    #d7ff37 -6.46%,
+    rgb(198, 246, 77) 59.04%,
+    #d6eb5d 124.53%
+  );
+  transform: matrix(2, 0, -0.03, 1, 0, 0);
+  opacity: 0.35;
+  top: calc(50% - 200px);
+  right: calc(50% - 280px);
+  width: 300px;
+}
+
+.code-animation {
+  color: rgb(84, 255, 17);
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right bottom, #ffffff38, #ffffff00);
+}
