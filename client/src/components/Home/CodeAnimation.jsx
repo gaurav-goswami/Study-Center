@@ -22,7 +22,7 @@ const CodeAnimation = ({ code }) => {
             sequence={[code, 2000, ""]}
             repeat={Infinity}
             cursor={true}
-            speed={50}
+            speed={65}
             omitDeletionAnimation={true}
             className="block whitespace-pre-line text-lg code-animation border-none"
           />

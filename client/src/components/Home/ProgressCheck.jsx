@@ -47,7 +47,7 @@ const ProgressCheck = () => {
 
             <Heading style="md:text-5xl font-extrabold text-3xl text-center my-2 gap-3 text-[#5aed75]">Track Your Progress.<HighLightText color="text-pink-200" size="md:text-5xl text-3xl"> And see you weak areas</HighLightText></Heading>
 
-            <div className='w-full h-max flex flex-col md:flex-row'>
+            <div className='w-full h-max flex flex-col md:flex-row justify-evenly'>
                 {/* subject progress */}
                 <div className='w-full md:w-[50%] h-full '>
                     {
@@ -62,8 +62,8 @@ const ProgressCheck = () => {
                 </div>
 
                 {/* days completed progress */}
-                <div className='w-full md:w-[50%] h-full flex flex-col gap-4 items-center'>
-                    <Circle percent={30} strokeColor="#fc1ebe" trailColor='#f788d8' strokeWidth={3.5} trailWidth={2}  style={{height : "300px"}}/>
+                <div className='w-full md:w-fit h-full flex flex-col gap-4 items-center'>
+                    <Circle percent={60} strokeColor="#fc1ebe" trailColor='#f788d8' strokeWidth={3.5} trailWidth={2}  style={{height : "300px"}}/>
                     <Paragraph styles="text-lg font-semibold text-pure-greys-5">Day 60 of 100</Paragraph>
                 </div>
             </div>
