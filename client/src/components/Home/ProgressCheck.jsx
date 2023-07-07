@@ -43,35 +43,29 @@ const ProgressCheck = () => {
 
   return (
     <>
-        <div className='w-screen h-max bg-white'>
-            
-            <div className='w-[100%] h-max mx-auto md:2xl:w-[80%] my-8 p-2 flex flex-col'>
+        <div className='w-[100%] h-max mx-auto md:2xl:w-[80%] p-2 flex flex-col gap-8'>
 
-                <Heading style="md:text-5xl font-extrabold text-3xl text-center my-2 gap-3 text-richblack-700">Track Your Progress.<HighLightText color="text-pink-200" size="md:text-5xl text-3xl"> And see you weak areas</HighLightText></Heading>
+            <Heading style="md:text-5xl font-extrabold text-3xl text-center my-2 gap-3 text-[#5aed75]">Track Your Progress.<HighLightText color="text-pink-200" size="md:text-5xl text-3xl"> And see you weak areas</HighLightText></Heading>
 
-                <div className='w-full h-max flex flex-col md:flex-row'>
-
-                    {/* subject progress */}
-                    <div className='w-full md:w-[50%] h-full '>
-                        {
-                            subjectProgress.map((item , index) => {
-                                return <div className='w-full flex gap-2 p-2 items-center my-1'>
-                                    <Paragraph styles="text-lg text-pure-greys-500 font-semibold">{item.language}</Paragraph>
-                                    {item.progress}
-                                    <Paragraph styles="text-lg text-pure-greys-500 font-semibold">{item.progressPercentage}%</Paragraph>
-                                </div>
-                            })
-                        }
-                    </div>
-
-
-                    {/* days completed progress */}
-                    <div className='w-full md:w-[50%] h-full'>
-                    
-                    </div>
-
+            <div className='w-full h-max flex flex-col md:flex-row'>
+                {/* subject progress */}
+                <div className='w-full md:w-[50%] h-full '>
+                    {
+                        subjectProgress.map((item , index) => {
+                            return <div className='w-full flex gap-2 p-2 items-center my-1'>
+                                <Paragraph styles="text-lg font-semibold text-pure-greys-5">{item.language}</Paragraph>
+                                {item.progress}
+                                <Paragraph styles="text-lg font-semibold text-pure-greys-5">{item.progressPercentage}%</Paragraph>
+                            </div>
+                        })
+                    }
                 </div>
 
+                {/* days completed progress */}
+                <div className='w-full md:w-[50%] h-full flex flex-col gap-4 items-center'>
+                    <Circle percent={30} strokeColor="#fc1ebe" trailColor='#f788d8' strokeWidth={3.5} trailWidth={2}  style={{height : "300px"}}/>
+                    <Paragraph styles="text-lg font-semibold text-pure-greys-5">Day 60 of 100</Paragraph>
+                </div>
             </div>
 
         </div>
