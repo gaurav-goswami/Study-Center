@@ -20,7 +20,7 @@ const ShareCodeSnap = () => {
 
   return (
     <>
-      <div className="w-[100%] h-max mx-auto md:2xl:w-[80%] p-2 flex gap-8 mt-6">
+      <div className="w-[100%] h-max mx-auto md:2xl:w-[75%] p-2 flex md:gap-8 gap-2 mt-6">
 
         <div className="w-fit flex flex-col justify-start flex-wrap">
           {splittedHeading.map((item, index) => {
@@ -28,7 +28,7 @@ const ShareCodeSnap = () => {
               <div key={index} className="text-center mb-1 rotate-[90deg]">
                 <HighLightText
                   color="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-[#d60d7f]"
-                  size="text-3xl font-extrabold md:text-6xl">
+                  size="text-4xl font-extrabold md:text-7xl">
                   {item}
                 </HighLightText>
               </div>
@@ -37,13 +37,13 @@ const ShareCodeSnap = () => {
         </div>
 
         {/* code snap */}
-        <div className="w-[95%] flex gap-16 justify-evenly mt-5">
+        <div className="md:w-[95%] flex gap-16 justify-evenly md:mt-5 flex-col lg:flex-row items-center lg:items-start">
 
             {/* code images */}
-            <div className="w-max flex flex-col gap-6 ml-16">
+            <div className="w-max flex flex-col gap-6 md:ml-16">
                 {
                     codeSnap.map((item, index) => {
-                        return <div className={`w-[350px] h-fit ${index === 0 ? 'rotate-[3deg]' : '-rotate-[12deg]'}  hover:-translate-y-[10px] transition-all ease-linear duration-150 cursor-pointer`}>
+                        return <div className={`max-[420px]:w-[180px] w-[320px] md:w-[400px] h-fit ${index === 0 ? 'rotate-[3deg]' : '-rotate-[12deg]'}  hover:-translate-y-[10px] transition-all ease-linear duration-150 cursor-pointer`}>
                             <img src={item} alt="code image" className="w-[100%] h-[100%] object-center object-contain" />
                         </div>
                     })
@@ -52,16 +52,16 @@ const ShareCodeSnap = () => {
 
             {/* para and icons */}
             
-            <div className="flex flex-col ml-12 gap-8">
+            <div className="flex flex-col lg:ml-12 lg:gap-8 items-center lg:items-start">
 
-                <Heading style="text-3xl md:text-5xl xl:text-8xl font-extrabold tracking-wide leading-loose" >Share your <HighLightText color="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-[#d60d7f]">CodeSnap</HighLightText> with other and show your <HighLightText color="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-[#d60d7f]">progress.</HighLightText></Heading>
+                <Heading style="text-3xl md:text-6xl xl:text-8xl font-extrabold lg:tracking-wide leading-normal lg:leading-loose" >Share your <HighLightText color="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-[#d60d7f]">CodeSnap</HighLightText> with other and show your <HighLightText color="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-[#d60d7f]">progress.</HighLightText></Heading>
 
                 {/* social icons */}
                 <div className="p-2 flex gap-8 rounded-md w-fit mt-6">
                     {
                         socialIcons.map((item, index) => {
                             return <div className="p-2" key = {index}>
-                                <img src={item} alt={`${item} icon`} className="w-[50px] transition-all duration-100 ease-linear grayscale-[100%] hover:grayscale-0 cursor-pointer" />
+                                <img src={item} alt={`${item} icon`} className="w-[30px] md:w-[50px] transition-all duration-100 ease-linear grayscale-[100%] hover:grayscale-0 cursor-pointer" />
                             </div>
                         })
                     }

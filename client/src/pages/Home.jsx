@@ -13,9 +13,9 @@ const Home = () => {
 
         <HomeSectionOne />
         <WhyChooseUs />
-        <BecomeInstructor />
         <ProgressCheck />
         <ShareCodeSnap />
+        <BecomeInstructor />
 
       </MainWrapper>
     </>
