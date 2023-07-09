@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import Button from '../common/Button'
 import {BiMenu} from "react-icons/bi"
 import {IoMdClose} from "react-icons/io"
+import UserDropDown from './UserDropDown'
 
 const Navbar = () => {
 
@@ -21,9 +22,9 @@ const Navbar = () => {
     ]
 
     let {token} = useSelector((state) => state.auth);
-    token = true;
-
+    
     const [isOpen , setIsOpen] = useState(false);
+    const [isDropdownOpen , setIsDropdownOpen] = useState(false);
 
   return (
     <>
@@ -62,18 +63,10 @@ const Navbar = () => {
 
                     : 
                     
-                    <div className='w-[35px] h-[35px] rounded-full cursor-pointer overflow-none relative'>
+                    <div className='w-[35px] h-[35px] rounded-full cursor-pointer overflow-none relative' onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                         <img src="https://img.freepik.com/free-photo/portrait-young-man-with-dark-curly-hair_176532-8137.jpg?w=1060&t=st=1688894214~exp=1688894814~hmac=d54961ae1c9fb6262cf4af35d6ea6e7204225457a2b78fc461706b16b00d91fc" alt="" className='w-full h-full rounded-full object-cover object-center'/>
 
-                        <div className='absolute top-[100%] -left-[100%] mt-5 bg-richblue-900 p-2 rounded-md w-[250px] flex flex-col gap-2'>
-                            {
-                                [{item : "Dashboard" , "path" : "/dashboard"} , {item : "Logout" , path : "/"}].map((item, index) => {
-                                    return <div className='p-2 text-white transition-all duration-100 ease-linear hover:bg-richblue-600 rounded-md' key = {index}>
-                                        <p>{item.item}</p>
-                                    </div>
-                                })
-                            }
-                        </div>
+                        <UserDropDown open={isDropdownOpen}/>
                     </div>  
                 }
             </div>
