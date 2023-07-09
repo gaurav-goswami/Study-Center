@@ -52,7 +52,7 @@ const ProgressCheck = () => {
                 <div className='w-full md:w-[50%] h-full '>
                     {
                         subjectProgress.map((item , index) => {
-                            return <div className='w-full flex gap-2 p-2 items-center my-1'>
+                            return <div className='w-full flex gap-2 p-2 items-center my-1' key = {index}>
                                 <Paragraph styles="text-lg font-semibold text-pure-greys-5">{item.language}</Paragraph>
                                 {item.progress}
                                 <Paragraph styles="text-lg font-semibold text-pure-greys-5">{item.progressPercentage}%</Paragraph>

@@ -43,7 +43,7 @@ const ShareCodeSnap = () => {
             <div className="w-max flex flex-col gap-6 md:ml-16">
                 {
                     codeSnap.map((item, index) => {
-                        return <div className={`max-[420px]:w-[180px] w-[320px] md:w-[400px] h-fit ${index === 0 ? 'rotate-[3deg]' : '-rotate-[12deg]'}  hover:-translate-y-[10px] transition-all ease-linear duration-150 cursor-pointer`}>
+                        return <div className={`max-[420px]:w-[180px] w-[320px] md:w-[400px] h-fit ${index === 0 ? 'rotate-[3deg]' : '-rotate-[12deg]'}  hover:-translate-y-[10px] transition-all ease-linear duration-150 cursor-pointer`} key={index}>
                             <img src={item} alt="code image" className="w-[100%] h-[100%] object-center object-contain" />
                         </div>
                     })
