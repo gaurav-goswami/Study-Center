@@ -22,7 +22,7 @@ const Navbar = () => {
     ]
 
     let {token} = useSelector((state) => state.auth);
-    
+
     const [isOpen , setIsOpen] = useState(false);
     const [isDropdownOpen , setIsDropdownOpen] = useState(false);
 
