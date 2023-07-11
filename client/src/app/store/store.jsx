@@ -3,6 +3,7 @@ import {setupListeners} from "@reduxjs/toolkit/dist/query"
 // import slices 
 import authSlice from "../features/Auth";
 import loadingSlice  from "../features/Loading";
+import userDetails from "../features/userDetails";
 
 // import API services
 import AuthApi from "../../services/Auth";
@@ -13,6 +14,7 @@ const store = configureStore ({
     reducer : {
         auth : authSlice,
         loading : loadingSlice,
+        user : userDetails,
         
         [AuthApi.reducerPath] : AuthApi.reducer
     },
