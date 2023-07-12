@@ -10,7 +10,7 @@ const AboutCount = () => {
 
     const countData = [
         {
-            name : "Students Enrolled",
+            name : "Learners",
             data : 50000,
             icon : <FaUsers className='text-xl md:text-3xl text-white max-[530px]:hidden'/>
         },
@@ -32,7 +32,7 @@ const AboutCount = () => {
     ]
 
   return (
-    <div className='w-full p-2 bg-pure-greys-500 flex gap-4 md:gap-8 justify-evenly max-[450px]:gap-0 max-[450px]:p-0'>
+    <div className='w-full p-2 bg-richblack-800 flex gap-4 md:gap-8 justify-evenly max-[450px]:gap-0 max-[450px]:p-0 my-12'>
         {
             countData.map((item , index) => {
                 return <div className='md:p-4 flex flex-col gap-4 items-center' key={index}>

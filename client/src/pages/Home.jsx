@@ -5,6 +5,7 @@ import WhyChooseUs from '../components/Home/WhyChooseUs'
 import BecomeInstructor from '../components/Home/BecomeInstructor'
 import ProgressCheck from '../components/Home/ProgressCheck'
 import ShareCodeSnap from '../components/Home/ShareCodeSnap'
+import AboutCount from '../components/About/AboutCount'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <MainWrapper>
 
         <HomeSectionOne />
+        <AboutCount />
         <WhyChooseUs />
         <ProgressCheck />
         <ShareCodeSnap />
