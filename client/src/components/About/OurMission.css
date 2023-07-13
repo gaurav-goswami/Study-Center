@@ -1,0 +1,93 @@
+.icon-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: upDownAnimation 2s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.icon-react{
+    top: 10px;
+    animation: upDownAnimation 3s infinite;
+    animation-timing-function: ease-in-out;
+    color: rgb(14, 198, 198);
+}
+
+.icon-node{
+    top: 30px;
+    animation: upDownAnimation 3s infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    color: green;
+}
+
+.icon-docker{
+    top: 10px;
+    right: 10px;
+    animation: upDownAnimation 3s infinite;
+    animation-timing-function: ease-in-out;
+    color: rgb(47, 47, 228);
+}
+
+.icon-aws{
+    top: 25%;
+    animation: upDownAnimation 3s infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    color: rgb(239, 158, 8);
+}
+
+.icon-css{
+    color: rgb(32, 32, 218);
+}
+
+.icon-html{
+    top: 120px;
+    animation: upDownAnimation 2.5s infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 2s;
+    color: rgb(241, 29, 29);
+}
+
+.icon-python{
+    bottom: 50px;
+    animation: upDownAnimation 2s infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    color: rgb(237, 220, 28);
+}
+
+.icon-mongo{
+    top: 50px;
+    animation: upDownAnimation 2s infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.5s;
+    color: rgb(5, 198, 5);
+}
+
+.icon-ts{
+    color: rgb(70, 70, 237);
+}
+
+.icon-nginx{
+    left: 170px;
+    color: rgb(12, 189, 12);
+}
+
+@keyframes upDownAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(200px); /* Adjust the distance the div moves */
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .icon-container{
+        animation: none;
+    }
+}
