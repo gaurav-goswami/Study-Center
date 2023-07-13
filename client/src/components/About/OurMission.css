@@ -1,4 +1,4 @@
-.icon-container{
+.icon-box{
     position: absolute;
     top: 0;
     left: 0;
@@ -70,7 +70,6 @@
 }
 
 .icon-nginx{
-    left: 170px;
     color: rgb(12, 189, 12);
 }
 
@@ -87,7 +86,11 @@
 }
 
 @media screen and (max-width : 768px) {
-    .icon-container{
+    .icon-box{
         animation: none;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 }

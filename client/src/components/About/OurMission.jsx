@@ -58,7 +58,7 @@ const OurMission = () => {
         <div className="w-[100%] md:w-[40%] p-2 flex flex-wrap">
             {
                 iconBall.map((item, index) => {
-                    return <div className={`p-2 bg-pure-greys-5 w-fit m-2 rounded-full overflow-hidden icon-container relative h-fit icon-${item.name}`} key={index}>
+                    return <div className={`p-2 bg-pure-greys-5 w-fit m-2 rounded-full overflow-hidden icon-box relative h-fit icon-${item.name}`} key={index}>
                         {item.icon}
                     </div>
                 })
