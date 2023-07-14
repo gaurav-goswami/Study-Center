@@ -1,5 +1,6 @@
 import React from "react";
 import Paragraph from "./Paragraph";
+import { Link } from "react-router-dom";
 
 const AuthForm = ({ isSignUp, handleSubmit, formDetails, setFormDetails, setOtpPage}) => {
   return (
@@ -120,6 +121,12 @@ const AuthForm = ({ isSignUp, handleSubmit, formDetails, setFormDetails, setOtpP
             onChange={setFormDetails}
           />
 
+          <div className="-mt-4 w-full">
+            <Link className="w-fit text-pure-greys-600" to="/reset-password">
+              <span>Forgot password</span>
+            </Link>
+          </div>
+          
           <button
             type="submit"
             className="p-2 rounded-md outline-none font-semibold w-full bg-yellow-100"

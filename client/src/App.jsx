@@ -7,12 +7,12 @@ import Login from "./pages/Login";
 import VerifyMail from "./pages/VerifyMail";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-import {useSelector} from "react-redux"
+import ResetPassword from "./pages/Reset Password/ResetPassword";
 
+import {useSelector} from "react-redux"
 // Route Protection
 import LoginProtection from "./Protected Route/LoginProtection";
 import HomeRedirect from "./Protected Route/HomeRedirect";
-import ResetPassword from "./pages/ResetPassword";
 
 
 const App = () => {

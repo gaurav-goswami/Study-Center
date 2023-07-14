@@ -6,6 +6,7 @@ import userDetails from "../features/userDetails";
 
 // import API services
 import AuthApi from "../../services/Auth";
+import resetPasswordApi from "../../services/Password";
 
 
 const store = configureStore ({
@@ -14,10 +15,11 @@ const store = configureStore ({
         auth : authSlice,
         user : userDetails,
         
-        [AuthApi.reducerPath] : AuthApi.reducer
+        [AuthApi.reducerPath] : AuthApi.reducer,
+        [resetPasswordApi.reducerPath] : resetPasswordApi.reducer,
     },
 
-    middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat([AuthApi.middleware])
+    middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat([AuthApi.middleware, resetPasswordApi.middleware])
 })
 
 setupListeners(store.dispatch);
