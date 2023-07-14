@@ -71,6 +71,9 @@
 
 .icon-nginx{
     color: rgb(12, 189, 12);
+    animation: upDownAnimation 2s infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 2.8s;
 }
 
 @keyframes upDownAnimation {

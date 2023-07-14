@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import HighLightText from "../common/HighLightText"
-import { Link } from 'react-router-dom'
+import { Link, matchPath, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Button from '../common/Button'
 import {BiMenu} from "react-icons/bi"
@@ -26,6 +26,11 @@ const Navbar = () => {
     const [isOpen , setIsOpen] = useState(false);
     const [isDropdownOpen , setIsDropdownOpen] = useState(false);
 
+    const location = useLocation();
+    const matchRoute = (route) => {
+        return matchPath({path : route} , location.pathname);
+    }
+
   return (
     <>
         <nav className='w-full py-1 md:px-0 bg-richblue-900 flex gap-4 items-center md:justify-around relative justify-between px-2'>
@@ -41,7 +46,7 @@ const Navbar = () => {
                 <ul className='flex gap-4 text-pure-greys-100 font-semibold'>
                     {
                         navLinks.map((item , index) => {
-                            return <Link to = {item.path} key = {index} className='hover:text-yellow-50'>
+                            return <Link to = {item.path} key = {index} className={`${matchRoute(item.path) ? "text-yellow-50" : ""}`}>
                                 <li>{item.item}</li>
                             </Link>
                         })
