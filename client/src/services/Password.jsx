@@ -22,7 +22,7 @@ const resetPasswordApi = createApi({
         resetPassword : builder.mutation({
             query : (resetPasswordDetails) => ({
                 url : "/auth/reset-password",
-                method : "POST",
+                method : "PUT",
                 headers : {
                     "Content-Type" : "application/json"
                 },

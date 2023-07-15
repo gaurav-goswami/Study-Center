@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import MainWrapper from "../components/Wrapper/MainWrapper";
 import OtpInput from "react-otp-input";
 import { useDispatch, useSelector } from "react-redux";
-import { signUp } from "../lib/AuthApi";
-import { useSignUpMutation } from "../services/Auth";
+import { sendOTP, signUp } from "../lib/AuthApi";
+import { useSendOtpMutation, useSignUpMutation } from "../services/Auth";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { BsArrowRepeat } from "react-icons/bs";
 
 const VerifyMail = () => {
   const [otp, setOtp] = useState("");
@@ -19,6 +21,15 @@ const VerifyMail = () => {
     e.preventDefault();
     dispatch(signUp(signUpUser, {...userDetails , otp}, navigate));
   }
+
+  const [resendOtp] = useSendOtpMutation();
+  const sendOtp = () => {
+    dispatch(sendOTP(resendOtp , {email : userDetails.email} , navigate));
+  }
+
+  useEffect(() => {
+    if(userDetails.email === "") navigate("/auth/signup")
+  } , [])
   
   return (
     <>
@@ -46,14 +57,22 @@ const VerifyMail = () => {
                     outline: "none",
                   }}
                   className="max-[360px]:w-[20px] max-[360px]:h-[20px]"
+                  placeholder="-"
                 />
               )}
             />
-            <form onSubmit={handleSignUp}>
-              <button className="p-2 rounded-md outline-none font-semibold flex gap-2 items-center text-center bg-yellow-100">
+            <form onSubmit={handleSignUp} className="flex gap-4 items-center">
+              <button className="p-2 rounded-md outline-none font-semibold flex gap-2 items-center text-center bg-yellow-100" type="submit">
                 Verify OTP
               </button>
+
+              <span className="flex gap-1 items-center text-pure-greys-200 cursor-pointer" onClick={sendOtp}>
+                <BsArrowRepeat className="text-xl" />
+                Resend Otp
+              </span>
             </form>
+
+            
           </div>
         </div>
       </MainWrapper>

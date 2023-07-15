@@ -24,3 +24,26 @@ export function resetPasswordToken(email, resetTokenFunc, setEmailSent) {
         dispatch(setLoading(false));
     }
 }
+
+
+export function changePassword(resetPasswordDetails, resetPasswordFunc) {
+    return async (dispatch) => {
+
+        const toastID = toast.loading("Loading...")
+        dispatch(setLoading(true));
+
+        try {
+
+            const response = await resetPasswordFunc(resetPasswordDetails).unwrap();
+            console.log("reset password response" , response);
+            toast.success("Password changed successfully");
+
+        } catch (error) {
+            console.log("error in reset password" , error);
+            toast.error("Something went wrong")
+        }
+
+        toast.dismiss(toastID);
+        dispatch(setLoading(false));
+    }
+}

@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import { setToken, setUserRole, setLoading } from "../app/features/Auth";
 
-export function sendOTP(otpFunc, email, navigate) {
+export function sendOTP(otpFunc, email, navigate = null) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));

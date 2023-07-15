@@ -13,6 +13,7 @@ import {useSelector} from "react-redux"
 // Route Protection
 import LoginProtection from "./Protected Route/LoginProtection";
 import HomeRedirect from "./Protected Route/HomeRedirect";
+import UpdatePassword from "./pages/UpdatePassword";
 
 
 const App = () => {
@@ -35,6 +36,8 @@ const App = () => {
           <Route path="/about" element={<AboutPage />}/>
           <Route path = "/contact" element={<ContactPage />}/>
           <Route path="/reset-password" element={<ResetPassword />}/>
+          <Route path="/reset-password/:id" element={<UpdatePassword />}/>
+
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
