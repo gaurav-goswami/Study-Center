@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import { changePassword } from "../lib/PasswordApi";
 import { useResetPasswordMutation } from "../services/Password";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { toast } from "react-hot-toast";
 
 const UpdatePassword = () => {
   const [password, setPassword] = useState({
@@ -38,6 +39,7 @@ const UpdatePassword = () => {
         confirmNewPassword : password.confirmPassword,
         resetPasswordToken : token
     }
+    if(password.password !== password.confirmPassword) return toast.error("Password and confirm password should be same");
     dispatch(changePassword(resetPasswordDetails , resetPass));
   };
 

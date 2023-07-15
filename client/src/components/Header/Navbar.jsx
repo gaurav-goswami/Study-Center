@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <>
-        <nav className='w-full py-1 md:px-0 bg-richblue-900 flex gap-4 items-center md:justify-around relative justify-between px-2'>
+        <nav className='w-full md:px-0 bg-richblue-900 flex gap-4 items-center md:justify-around relative justify-between px-2'>
             
             <div className='p-1'>
                 <Link to = "/">

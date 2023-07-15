@@ -14,11 +14,16 @@ import {useSelector} from "react-redux"
 import LoginProtection from "./Protected Route/LoginProtection";
 import HomeRedirect from "./Protected Route/HomeRedirect";
 import UpdatePassword from "./pages/UpdatePassword";
+import MyProfile from "./pages/Dashboard/MyProfile";
+import EnrolledCourses from "./pages/Dashboard/EnrolledCourses";
+import Cart from "./pages/Dashboard/Cart";
+import Settings from "./pages/Dashboard/Settings";
 
 
 const App = () => {
 
   const isAuth = useSelector((state) => state.auth.token);
+  const userRole = useSelector((state) => state.auth.userRole);
 
   return (
     <>
@@ -37,6 +42,14 @@ const App = () => {
           <Route path = "/contact" element={<ContactPage />}/>
           <Route path="/reset-password" element={<ResetPassword />}/>
           <Route path="/reset-password/:id" element={<UpdatePassword />}/>
+
+          {/* dashboard */}
+          <Route element={<LoginProtection isAuth={isAuth} userRole={userRole}/>}>
+            <Route path="/dashboard/my-profile" element={<MyProfile />}/>
+            <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses />}/>
+            <Route path="/dashboard/cart" element={<Cart />}/>
+            <Route path="/dashboard/settings" element={<Settings />}/>
+          </Route>
 
           <Route path="*" element={<Error />} />
         </Routes>
