@@ -18,6 +18,7 @@ import MyProfile from "./pages/Dashboard/MyProfile";
 import EnrolledCourses from "./pages/Dashboard/EnrolledCourses";
 import Cart from "./pages/Dashboard/Cart";
 import Settings from "./pages/Dashboard/Settings";
+import PurchaseHistory from "./pages/Dashboard/PurchaseHistory";
 
 
 const App = () => {
@@ -49,6 +50,8 @@ const App = () => {
             <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses />}/>
             <Route path="/dashboard/cart" element={<Cart />}/>
             <Route path="/dashboard/settings" element={<Settings />}/>
+            <Route path="/dashboard/purchase-history" element={<PurchaseHistory />}/>
+
           </Route>
 
           <Route path="*" element={<Error />} />

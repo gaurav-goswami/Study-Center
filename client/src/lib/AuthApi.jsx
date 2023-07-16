@@ -1,5 +1,5 @@
 import { toast } from "react-hot-toast";
-import { setToken, setUserRole, setLoading } from "../app/features/Auth";
+import { setToken, setUserRole, setLoading, setUserDetails } from "../app/features/Auth";
 
 export function sendOTP(otpFunc, email, navigate = null) {
   return async (dispatch) => {
@@ -53,12 +53,15 @@ export function loginUser(loginFunc, loginDetails, navigate) {
       toast.success(response.message);
       localStorage.setItem("token", response.token);
       localStorage.setItem("user", response.role);
+      localStorage.setItem("userDetails" , response.user)
 
       dispatch(setLoading(false));
       dispatch(setToken(response.token));
       dispatch(setUserRole(response.role));
+      dispatch(setUserDetails({...response.user}));
+      
+      navigate("/dashboard/my-profile");
 
-      navigate("/");
     } catch (error) {
       console.log("error in login", error);
       toast.error(error.data?.message);
@@ -68,12 +71,16 @@ export function loginUser(loginFunc, loginDetails, navigate) {
   };
 }
 
-export function logout() {
+export function logout(navigate) {
   return (dispatch) => {
+
     dispatch(setToken(""));
     dispatch(setUserRole(""));
 
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    toast.success("Logged Out")
+
+    navigate("/")
   };
 }

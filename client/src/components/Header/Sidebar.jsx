@@ -1,60 +1,57 @@
-import React from 'react'
-import {AiOutlineHome, AiOutlineShoppingCart} from "react-icons/ai";
-import {BiUserCircle} from "react-icons/bi";
-import { IoSettings } from 'react-icons/io5';
-import { PiStudentBold } from 'react-icons/pi';
-import { Link, matchPath, useLocation } from 'react-router-dom';
+import React from "react";
+import sidebarLinks from "../../data/dashboard-links";
+import { useDispatch, useSelector } from "react-redux";
+import SideBarLink from "./SideBarLink";
+import { logout } from "../../lib/AuthApi";
+import { useNavigate } from "react-router-dom";
+import { VscSignOut } from "react-icons/vsc";
 
 const Sidebar = () => {
+  const { userRole } = useSelector((state) => state.auth);
 
-    const sidebarLinks = [
-        {
-            name : "Home",
-            icon : <AiOutlineHome className='text-pure-greys-5 text-2xl'/>,
-            path : "/"
-        },
-        {
-            name : "My Profile",
-            icon : <BiUserCircle className='text-2xl font-extralight'/>,
-            path : "/dashboard/my-profile"
-        },
-        {
-            name : "Enrolled Courses",
-            icon : <PiStudentBold className='text-pure-greys-5 text-2xl'/>,
-            path : "/dashboard/enrolled-courses"
-        },
-        {
-            name : "Cart",
-            icon : <AiOutlineShoppingCart className='text-pure-greys-5 text-2xl'/>,
-            path : "/dashboard/cart"
-        },
-        {
-            name : "Settings",
-            icon : <IoSettings className='text-pure-greys-5 text-2xl'/>,
-            path : "/dashboard/settings"
-        }
-    ]
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const location = useLocation();
-    const matchRoute = (route) => {
-        return matchPath({path : route} , location.pathname);
-    }
+  const handleLogout = () => {
+    dispatch(logout(navigate));
+  }
+
   return (
     <>
-        <aside className='py-2 bg-richblack-800 md:w-[25%] lg:w-[220px]'>
-            <div className='flex flex-col gap-4 items-center mt-8'>
-            {   
-                sidebarLinks.map((item, index) => {
-                    return <Link key = {index} to={item.path} className={`flex w-[100%] items-center gap-2 px-8 py-2 transition-all duration-200 ${matchRoute(item.path) ? "text-yellow-50 bg-yellow-800" : "text-pure-greys-200"}`}>
-                        {item.icon}
-                        {item.name}
-                    </Link>
-                })
-            }
-            </div>
-        </aside>
-    </>
-  )
-}
+      <aside className="py-2 bg-richblack-800 md:w-[25%] lg:w-[220px]">
+        <div className="flex flex-col gap-2 items-center mt-8">
+          {sidebarLinks.map((item) => {
+            if (item.type && item.type !== userRole) return null;
 
-export default Sidebar
+            return (
+              <SideBarLink
+                key={item.id}
+                path={item.path}
+                iconName={item.icon}
+                name={item.name}
+              />
+            );
+          })}
+        </div>
+
+        <div className="mx-auto my-6 h-[1px] w-10/12 bg-richblack-600"></div>
+
+        <div className="flex flex-col gap-2 items-center">
+          <SideBarLink
+            path="/dashboard/settings"
+            iconName="VscSettingsGear"
+            name="Settings"
+          />
+          <button onClick={handleLogout} className="flex w-[100%] items-center gap-2 px-8 py-2 transition-all duration-200 text-pure-greys-200">
+            <div className="flex items-center gap-x-2 w-full">
+              <VscSignOut className="text-lg" />
+              <span>Logout</span>
+            </div>
+          </button>
+        </div>
+      </aside>
+    </>
+  );
+};
+
+export default Sidebar;
