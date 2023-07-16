@@ -7,6 +7,7 @@ import userDetails from "../features/userDetails";
 // import API services
 import AuthApi from "../../services/Auth";
 import resetPasswordApi from "../../services/Password";
+import coursesApi from "../../services/Courses";
 
 
 const store = configureStore ({
@@ -17,9 +18,10 @@ const store = configureStore ({
         
         [AuthApi.reducerPath] : AuthApi.reducer,
         [resetPasswordApi.reducerPath] : resetPasswordApi.reducer,
+        [coursesApi.reducerPath] : coursesApi.reducer
     },
 
-    middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat([AuthApi.middleware, resetPasswordApi.middleware])
+    middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat([AuthApi.middleware, resetPasswordApi.middleware, coursesApi.middleware])
 })
 
 setupListeners(store.dispatch);

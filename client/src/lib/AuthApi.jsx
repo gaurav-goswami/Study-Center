@@ -8,13 +8,12 @@ export function sendOTP(otpFunc, email, navigate = null) {
 
     try {
       const response = await otpFunc(email).unwrap();
-      console.log("sendOtp response", response);
       toast.success("OTP sent successfully");
       dispatch(setLoading(false));
 
       navigate("/auth/user/verify-otp");
     } catch (error) {
-      console.log("Error while sending Otp", error);
+      console.log("error in sendotp" , error)
       toast.error(error.data?.message);
     }
 
@@ -29,7 +28,6 @@ export function signUp(signUpFunc, signUpDetails, navigate) {
 
     try {
       const response = await signUpFunc(signUpDetails).unwrap();
-      console.log("signUp", response);
       toast.success(response.message);
       
       navigate("/auth/login");
@@ -50,15 +48,20 @@ export function loginUser(loginFunc, loginDetails, navigate) {
 
     try {
       const response = await loginFunc(loginDetails).unwrap();
+
       toast.success(response.message);
       localStorage.setItem("token", response.token);
       localStorage.setItem("user", response.role);
-      localStorage.setItem("userDetails" , response.user)
+      localStorage.setItem("userDetails" , JSON.stringify(response.user))
+
+      const userAvatar = response.user?.profile
+      ? response.user?.profile
+      : `https://api.dicebear.com/5.x/initials/svg?seed=${response.user.firstName} ${response.user.lastName}`
 
       dispatch(setLoading(false));
       dispatch(setToken(response.token));
       dispatch(setUserRole(response.role));
-      dispatch(setUserDetails({...response.user}));
+      dispatch(setUserDetails({...response.user , profile : userAvatar}));
       
       navigate("/dashboard/my-profile");
 
