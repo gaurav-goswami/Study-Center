@@ -5,7 +5,7 @@ const Settings = () => {
   return (
     <>
         <DashboardWrapper>
-            <h1 className='text-white'>This is user settings page</h1>
+            
         </DashboardWrapper>
     </>
   )

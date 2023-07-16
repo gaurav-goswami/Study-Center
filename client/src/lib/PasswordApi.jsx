@@ -35,7 +35,6 @@ export function changePassword(resetPasswordDetails, resetPasswordFunc) {
         try {
 
             const response = await resetPasswordFunc(resetPasswordDetails).unwrap();
-            console.log("reset password response" , response);
             toast.success("Password changed successfully");
 
         } catch (error) {
