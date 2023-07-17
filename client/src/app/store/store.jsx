@@ -3,6 +3,8 @@ import {setupListeners} from "@reduxjs/toolkit/dist/query"
 // import slices 
 import authSlice from "../features/Auth";
 import userDetails from "../features/userDetails";
+import cartSlice  from "../features/Cart";
+
 
 // import API services
 import AuthApi from "../../services/Auth";
@@ -15,6 +17,7 @@ const store = configureStore ({
     reducer : {
         auth : authSlice,
         user : userDetails,
+        cart : cartSlice,
         
         [AuthApi.reducerPath] : AuthApi.reducer,
         [resetPasswordApi.reducerPath] : resetPasswordApi.reducer,
