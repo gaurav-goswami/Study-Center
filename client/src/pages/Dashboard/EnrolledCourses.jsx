@@ -19,31 +19,26 @@ const EnrolledCourses = () => {
           <Heading style="text-xl md:text-4xl md:font-bold">
             Enrolled <HighLightText color="text-yellow-100">Courses</HighLightText>
           </Heading>
-
-          <EnrolledCoursesCard />
+          {
+            !data ? (
+              <div className='flex items-center justify-center h-[90%]'>
+                <span className='course-loader'></span>
+              </div>
+            )
+            :
+            !data.length ? (
+              <div className='flex items-center justify-center h-[90%] flex-col gap-4'>
+                <Paragraph color="text-pure-greys-200" styles="text-xl md:text-2xl">You havn't enrolled in any course yet.</Paragraph>
+                <Button path="/courses" styles="bg-yellow-200">Explore Courses</Button>
+              </div>
+            )
+          
+            :
+            <EnrolledCoursesCard />
+          }
         </div>
     </DashboardWrapper>
   )
 }
 
 export default EnrolledCourses
-
-
-// {
-//   !data ? (
-//     <div className='flex items-center justify-center h-[90%]'>
-//       <span className='course-loader'></span>
-//     </div>
-//   )
-//   :
-//   !data.length ? (
-//     <div className='flex items-center justify-center h-[90%] flex-col gap-4'>
-//       <Paragraph color="text-pure-greys-200" styles="text-xl md:text-2xl">You havn't enrolled in any course yet.</Paragraph>
-//       <Button path="/courses" styles="bg-yellow-200">Explore Courses</Button>
-//     </div>
-//   )
-
-//   :
-
-//   null
-// }
