@@ -195,7 +195,15 @@ class AuthController {
                 return res.status(200).json({
                     success: true,
                     status: 200,
-                    message: "Logged In 🚀"
+                    message: "Logged In 🚀",
+                    role : user.accountType,
+                    token,
+                    user : {
+                        firstName : user.firstName,
+                        lastName : user.lastName,
+                        email : user.email,
+                        profile : user.avatar,
+                    }
                 })
 
             }
@@ -361,7 +369,6 @@ class AuthController {
 
             const {resetPasswordToken, newPassword, confirmNewPassword} = req.body;
 
-            console.log(resetPasswordToken);
             if (newPassword !== confirmNewPassword) {
                 return res.status(400).json({
                     success: false,
