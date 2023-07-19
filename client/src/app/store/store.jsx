@@ -4,10 +4,12 @@ import {setupListeners} from "@reduxjs/toolkit/dist/query"
 import authSlice from "../features/Auth";
 import userDetails from "../features/userDetails";
 import cartSlice  from "../features/Cart";
+import buildCourse from "../features/buildCourse";
+import courseStep from "../features/courseStep";
 
 
 // import API services
-import AuthApi from "../../services/Auth";
+import AuthApi from "../../services/Auth"
 import resetPasswordApi from "../../services/Password";
 import coursesApi from "../../services/Courses";
 
@@ -18,6 +20,8 @@ const store = configureStore ({
         auth : authSlice,
         user : userDetails,
         cart : cartSlice,
+        buildCourse,
+        courseStep,
         
         [AuthApi.reducerPath] : AuthApi.reducer,
         [resetPasswordApi.reducerPath] : resetPasswordApi.reducer,
