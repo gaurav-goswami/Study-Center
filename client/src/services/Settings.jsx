@@ -17,7 +17,7 @@ const SettingsApi = createApi({
 
         updateProfilePicture : builder.mutation({
             query : (displayPicture) => ({
-                url : "/update-avatar",
+                url : "/profile/update-avatar",
                 method : "PUT",
                 headers : {
                     "Content-Type" : "application/json"
@@ -30,7 +30,7 @@ const SettingsApi = createApi({
 
         updateProfile : builder.mutation({
             query : (profileData) => ({
-                url : "/update-profile",
+                url : "/profile/update-profile",
                 method : "PUT",
                 headers : {
                     "Content-Type" : "application/json"
@@ -42,7 +42,7 @@ const SettingsApi = createApi({
 
         changePassword : builder.mutation({
             query : (passwordData) => ({
-                url : "/change-password",
+                url : "/auth/change-password",
                 method : "PUT",
                 headers : {
                     "Content-Type" : "application/json"

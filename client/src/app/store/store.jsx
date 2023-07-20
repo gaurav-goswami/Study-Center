@@ -30,7 +30,7 @@ const store = configureStore ({
         [SettingsApi.reducerPath] : SettingsApi.reducer,
     },
 
-    middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat([AuthApi.middleware, resetPasswordApi.middleware, coursesApi.middleware])
+    middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat([AuthApi.middleware, resetPasswordApi.middleware, coursesApi.middleware, SettingsApi.middleware])
 })
 
 setupListeners(store.dispatch);
