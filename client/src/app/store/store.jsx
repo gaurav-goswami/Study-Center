@@ -12,6 +12,7 @@ import courseStep from "../features/courseStep";
 import AuthApi from "../../services/Auth"
 import resetPasswordApi from "../../services/Password";
 import coursesApi from "../../services/Courses";
+import SettingsApi from "../../services/Settings";
 
 
 const store = configureStore ({
@@ -25,7 +26,8 @@ const store = configureStore ({
         
         [AuthApi.reducerPath] : AuthApi.reducer,
         [resetPasswordApi.reducerPath] : resetPasswordApi.reducer,
-        [coursesApi.reducerPath] : coursesApi.reducer
+        [coursesApi.reducerPath] : coursesApi.reducer,
+        [SettingsApi.reducerPath] : SettingsApi.reducer,
     },
 
     middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat([AuthApi.middleware, resetPasswordApi.middleware, coursesApi.middleware])

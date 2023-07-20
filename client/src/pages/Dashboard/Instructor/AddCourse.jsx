@@ -11,7 +11,7 @@ const AddCourse = () => {
         <div className='w-full md:w-[80%] p-1 flex flex-col gap-2 mx-auto'>
             <Heading style="text-xl md:text-2xl xl:text-4xl font-semibold">Add <HighLightText color="text-yellow-100">Course</HighLightText>  </Heading>
 
-            <div className='bg-caribbeangreen-400 flex justify-between px-4 mt-6'>
+            <div className='flex justify-between px-4 mt-6'>
                 <div>
                     <CourseSteps />
                 </div>
