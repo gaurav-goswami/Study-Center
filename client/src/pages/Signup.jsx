@@ -4,7 +4,7 @@ import Heading from "../components/common/Heading";
 import HighLightText from "../components/common/HighLightText";
 import { useSendOtpMutation } from "../services/Auth";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AuthForm from "../components/common/AuthForm";
 import { sendOTP } from "../lib/AuthApi";
 import { toast } from "react-hot-toast";
@@ -30,6 +30,8 @@ const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const {loading} = useSelector((state) => state.auth);
+
   const setOtpPage = (e) => {
     e.preventDefault();
     if(signUpDetails.createPassword !== signUpDetails.confirmPassword) return toast.error("Password field must be same")
@@ -54,6 +56,7 @@ const Signup = () => {
             formDetails={signUpDetails}
             setFormDetails={handleChange}
             setOtpPage={setOtpPage}
+            loading = {loading}
           />
         </div>
       </MainWrapper>

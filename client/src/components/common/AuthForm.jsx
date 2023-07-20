@@ -2,7 +2,7 @@ import React from "react";
 import Paragraph from "./Paragraph";
 import { Link } from "react-router-dom";
 
-const AuthForm = ({ isSignUp, handleSubmit, formDetails, setFormDetails, setOtpPage}) => {
+const AuthForm = ({ isSignUp, handleSubmit, formDetails, setFormDetails, setOtpPage, loading}) => {
   return (
     <>
       {isSignUp ? (
@@ -91,6 +91,7 @@ const AuthForm = ({ isSignUp, handleSubmit, formDetails, setFormDetails, setOtpP
           <button
             type="submit"
             className="p-2 rounded-md outline-none font-semibold w-full bg-yellow-100"
+            disabled={loading}
           >
             Create Account
           </button>

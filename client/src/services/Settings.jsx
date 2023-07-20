@@ -8,8 +8,8 @@ const SettingsApi = createApi({
     endpoints : (builder) => ({
 
         deleteProfile : builder.mutation({
-            query : ({accountID}) => ({
-                url : `/profile/delete-profile/${accountID}`,
+            query : () => ({
+                url : '/profile/delete-profile',
                 method : "DELETE",
                 credentials : "include"
             })
