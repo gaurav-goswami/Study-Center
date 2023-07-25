@@ -20,9 +20,9 @@ const SettingsApi = createApi({
                 url : "/profile/update-avatar",
                 method : "PUT",
                 headers : {
-                    "Content-Type" : "application/json"
+                    "Content-Type": "multipart/form-data",
                 },
-                body : JSON.stringify(displayPicture),
+                body : displayPicture,
                 credentials : "include"
                 
             })
