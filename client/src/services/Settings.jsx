@@ -19,9 +19,6 @@ const SettingsApi = createApi({
             query : (displayPicture) => ({
                 url : "/profile/update-avatar",
                 method : "PUT",
-                headers : {
-                    "Content-Type": "multipart/form-data",
-                },
                 body : displayPicture,
                 credentials : "include"
                 

@@ -71,7 +71,7 @@ export const updateProfile = (updateProfileFunc, profileDetails, navigate) => {
   };
 };
 
-export const updateProfilePicture = (updateProfilePictureFunc, displayPicture, navigate) => {
+export const updateProfilePicture = (updateProfilePictureFunc, displayPicture) => {
   return async (dispatch) => {
 
     const toastId = toast.loading("Loading...");
@@ -82,11 +82,12 @@ export const updateProfilePicture = (updateProfilePictureFunc, displayPicture, n
       const response = await updateProfilePictureFunc(displayPicture).unwrap();
       console.log("succefully updated profile picture" , response);
 
-      // dispatch(setUserDetails({...response.data}))
+      const {firstName, lastName, email, avatar} = response.data;
+
+      localStorage.setItem("userDetails" , JSON.stringify({firstName, lastName, email, profile : avatar}));
+      dispatch(setUserDetails({firstName, lastName, email, profile : avatar}))
       toast.success("Profile picture updated successfully");
       dispatch(setLoading(false));
-
-      navigate("/dashboard/my-profile");
 
     } catch (error) {
       console.log("Error in update profile picture" , error);
