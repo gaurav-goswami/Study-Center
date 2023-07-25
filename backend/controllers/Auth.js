@@ -232,9 +232,9 @@ class AuthController {
 
         try {
 
-            const { currentPassword, newPassword, confirmNewPassword } = req.body;
+            const {currentPassword, newPassword} = req.body;
 
-            if (!currentPassword || !newPassword || !confirmNewPassword) return res.status(403).json({
+            if (!currentPassword || !newPassword) return res.status(403).json({
                 success: false,
                 status: 403,
                 message: "All fields are required"
@@ -247,16 +247,6 @@ class AuthController {
             let user = await User.findOne({ email }).select("+ password");
 
             if (await bcrypt.compare(currentPassword, user.password)) {
-
-                if (newPassword !== confirmNewPassword) {
-                    return res.status(400).json({
-                        success: false,
-                        status: 400,
-                        message: "New password and confirm new password field must be same"
-                    })
-                }
-
-                // if the newPassword and confirmNewPassword are same, then hash the new password and update the existing password field and send an email to the user.
 
                 let hashedPassword;
 

@@ -52,7 +52,7 @@ class ProfileController {
 
         try {
 
-            const { accountID } = req.params;
+            const accountID  = req.user.id;
 
             const userAccount = await User.findById(accountID);
 
