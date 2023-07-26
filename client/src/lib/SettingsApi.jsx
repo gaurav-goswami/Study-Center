@@ -51,20 +51,19 @@ export const updateProfile = (updateProfileFunc, profileDetails, navigate) => {
 
     try {
       const response = await updateProfileFunc(profileDetails).unwrap();
+      const {firstName, lastName, avatar, email} = response.user;
+      const {about, contactNumber, gender, dateOfBirth} = response.user.additionalDetails;
       console.log("update profile response", response);
 
-      const userAvatar = response.user?.profile
-        ? response.user?.profile
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.user.firstName} ${response.user.lastName}`;
-
       toast.success("Successfully updated profile details")
-      dispatch(setUserDetails({ ...response.user, profile : userAvatar }));
+      localStorage.setItem("userDetails" , JSON.stringify({firstName, lastName, profile : avatar, about, contactNumber, gender, dateOfBirth, email}));
+      dispatch(setUserDetails({firstName, lastName, profile : avatar, about, contactNumber, gender, dateOfBirth, email}));
       dispatch(setLoading(false));
 
       navigate("/dashboard/my-profile");
     } catch (error) {
       console.log("Error in updateProfile function", error);
-      toast.error("Something went wrong while updating profile details");
+      toast.error(error.data.message);
     }
 
     toast.dismiss(toastId);

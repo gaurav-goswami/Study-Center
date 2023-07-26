@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const MyProfile = () => {
   const user = useSelector((state) => state.auth.userDetails);
+  console.log("user is " , user);
 
   return (
     <>
@@ -50,12 +51,12 @@ const MyProfile = () => {
             </div>
             <p
               className={`${
-                user?.additionalDetails?.about
+                user?.about
                   ? "text-richblack-5"
                   : "text-richblack-400"
               } text-sm font-medium`}
             >
-              {user?.additionalDetails?.about ??
+              {user?.about ??
                 "Write Something About Yourself"}
             </p>
           </div>
@@ -89,7 +90,7 @@ const MyProfile = () => {
                 <div>
                   <p className="mb-2 text-sm text-richblack-600">Gender</p>
                   <p className="text-sm font-medium text-richblack-5">
-                    {user?.additionalDetails?.gender ?? "Add Gender"}
+                    {user?.gender ?? "Add Gender"}
                   </p>
                 </div>
               </div>
@@ -105,7 +106,7 @@ const MyProfile = () => {
                     Phone Number
                   </p>
                   <p className="text-sm font-medium text-richblack-5">
-                    {user?.additionalDetails?.contactNumber ??
+                    {user?.contactNumber ??
                       "Add Contact Number"}
                   </p>
                 </div>
@@ -114,7 +115,7 @@ const MyProfile = () => {
                     Date Of Birth
                   </p>
                   <p className="text-sm font-medium text-richblack-5">
-                    {dateFormatter(user?.additionalDetails?.dateOfBirth) ??
+                    {dateFormatter(user?.dateOfBirth) ??
                       "Add Date Of Birth"}
                   </p>
                 </div>
