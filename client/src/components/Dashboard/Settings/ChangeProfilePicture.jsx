@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FiUpload } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
 import { useUpdateProfilePictureMutation } from "../../../services/Settings";
 import { updateProfilePicture } from "../../../lib/SettingsApi";
 
@@ -14,7 +13,6 @@ const ChangeProfilePicture = () => {
 
   const fileRef = useRef();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [updateAvatarFunc] = useUpdateProfilePictureMutation();
 
   const handleFileChange = (e) => {
