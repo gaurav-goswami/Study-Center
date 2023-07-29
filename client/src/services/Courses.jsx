@@ -21,10 +21,7 @@ const coursesApi = createApi({
             query : (courseDetails) => ({
                 url : "/course/create-course",
                 method : "POST",
-                headers : {
-                    "Content-Type" : "application/json"
-                },
-                body : JSON.stringify(courseDetails),
+                body : courseDetails,
                 credentials : "include"
             })
         }),
@@ -86,7 +83,7 @@ const coursesApi = createApi({
             })
         }),
 
-        // instructor courses (instructor only)
+        // instructor courses (instructor)
         instructorCourse : builder.query({
             query : () => ({
                 url : "/course/instructor-course",
@@ -95,10 +92,99 @@ const coursesApi = createApi({
             })
         }),
 
-        
+        // delete course (instructor)
+        deleteCourse : builder.mutation({
+            query : (courseId) => ({
+                url : "/course/delete-course",
+                method : "DELETE",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                body : JSON.stringify(courseId),
+                credentials : "include"
+            })
+        }),
+
+        // Add section (instructor)
+        addSection : builder.mutation({
+            query : (courseDetails) => ({
+                url : "/course/add-section",
+                method : "POST",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                body : JSON.stringify(courseDetails),
+                credentials : "include"
+            })
+        }),
+
+        // update section (instructor)
+        updateSection : builder.mutation({
+            query : (updateDetails) => ({
+                url : "/course/update-section",
+                method : "PUT",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                body : JSON.stringify(updateDetails),
+                credentials : "include"
+            })
+        }),
+
+        // delete section (instructor)
+        deleteSection : builder.mutation({
+            query : ({courseId, sectionId}) => ({
+                url : `/course/delete-section/${sectionId}`,
+                method : "DELETE",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                params : {
+                    sectionId
+                },
+                body : JSON.stringify(courseId),
+                credentials : "include"
+            })
+        }),
+
+        // add sub-section
+        addSubSection : builder.mutation({
+            query : (subSectionDetails) => ({
+                url : "/course/add-sub-section",
+                method : "POST",
+                body : subSectionDetails,
+                credentials : "include"
+            })
+        }),
+
+        // update sub-section
+        updateSubSection : builder.mutation({
+            query : (updateDetails) => ({
+                url : "/course/update-sub-section",
+                method : "PUT",
+                body : updateDetails,
+                credentials : "include"
+            })
+        }),
+
+        // delete sub-section
+        deleteSubSection : builder.mutation({
+            query : ({sectionId, subSectionId}) => ({
+                url : `/course/delete-sub-section/${subSectionId}`,
+                method : "DELETE",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                params : {
+                    subSectionId
+                },
+                body : JSON.stringify(sectionId),
+                credentials : "include"
+            })
+        })
 
     })  
 })
 
 export default coursesApi;
-export const {useGetEnrolledCoursesQuery} = coursesApi;
+export const {useGetEnrolledCoursesQuery, useCreateCourseMutation, useGetAllCoursesQuery, useGetCourseDetailsQuery, useUpdateCourseProgressMutation, useFullCourseDetailsQuery, useEditCourseMutation, useInstructorCourseQuery, useDeleteCourseMutation, useAddSectionMutation, useUpdateSectionMutation, useDeleteSectionMutation, useAddSubSectionMutation, useUpdateSubSectionMutation, useDeleteSubSectionMutation} = coursesApi;
