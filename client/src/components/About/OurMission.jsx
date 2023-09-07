@@ -7,66 +7,12 @@ import "./OurMission.css";
 
 const OurMission = () => {
 
-    const iconBall = [
-        {
-            icon : <FaReact className="text-4xl"/>,
-            name : "react"
-        },
-        {
-            icon : <FaNodeJs className="text-4xl"/>,
-            name : "node"
-        },
-        {
-            icon : <FaHtml5 className="text-4xl"/>,
-            name : "html"
-        },
-        {
-            icon : <FaDocker className="text-4xl"/>,
-            name : "docker"
-        },
-        {
-            icon : <FaAws className="text-4xl"/>,
-            name : "aws"
-        },
-        {
-            icon : <FaCss3Alt className="text-4xl"/>,
-            name : "css"
-        },
-        {
-            icon : <FaPython className="text-4xl"/>,
-            name : "python"
-        },
-        {
-            icon : <SiMongodb className="text-4xl"/>,
-            name : "mongo"
-        },
-        {
-            icon : <SiTypescript className="text-4xl"/>,
-            name : "ts"
-        },
-        {
-            icon : <SiNginx className="text-4xl"/>,
-            name : "nginx"
-        }
-    ]
-
     return (
     <>
-      <div className="w-[90%] md:w-[80%] xl:w-[75%] mx-auto my-4 flex flex-col md:flex-row gap-2 p-2">
-        {/* animation */}
-
-        <div className="w-[100%] md:w-[40%] p-2 flex flex-wrap">
-            {
-                iconBall.map((item, index) => {
-                    return <div className={`p-2 bg-pure-greys-5 w-fit m-2 rounded-full overflow-hidden icon-box relative h-fit icon-${item.name}`} key={index}>
-                        {item.icon}
-                    </div>
-                })
-            }        
-        </div>
+      <div className="w-[90%] md:w-[80%] xl:w-[75%] mx-auto my-4 flex flex-col md:flex-row gap-2 p-2 justify-center">
 
         <div className="w-[100%] md:w-[60%] p-2">
-          <Heading style="text-xl md:text-5xl font-extrabold text-yellow-200">Our Mission</Heading>
+          <Heading style="text-xl md:text-5xl font-extrabold text-yellow-200 text-center">Our Mission</Heading>
           <Paragraph color="text-pure-greys-100" styles="text-lg md:text-xl my-2">At Study Center, our mission is to empower learners with the knowledge and skills needed to excel in their educational and professional journeys. We are dedicated to providing high-quality, accessible, and engaging learning resources that foster a deep understanding of various subjects.
           Our goal is to create a supportive and inclusive learning environment where individuals can explore their passions, expand their horizons, and unlock their full potential. We believe in the transformative power of education and its ability to shape lives positively.</Paragraph>
 
