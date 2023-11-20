@@ -13,8 +13,8 @@
 }
 
 .code-animation {
-  color: rgb(84, 255, 17);
-  border: 2px solid;
+  color: rgb(11, 224, 96);
+  border: 1px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(to right bottom, #ffffff38, #ffffff00);
 }

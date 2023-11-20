@@ -1,23 +1,7 @@
-import React , {lazy , Suspense} from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux";
 import Loader from "./components/Loader";
-
-// import Home from "./pages/Home";
-// import Error from "./pages/Error";
-// import Signup from "./pages/Signup";
-// import Login from "./pages/Login";
-// import VerifyMail from "./pages/VerifyMail";
-// import AboutPage from "./pages/AboutPage";
-// import ContactPage from "./pages/ContactPage";
-// import ResetPassword from "./pages/Reset Password/ResetPassword";
-
-// import UpdatePassword from "./pages/UpdatePassword";
-// import MyProfile from "./pages/Dashboard/MyProfile";
-// import EnrolledCourses from "./pages/Dashboard/EnrolledCourses";
-// import Cart from "./pages/Dashboard/Cart";
-// import Settings from "./pages/Dashboard/Settings";
-// import PurchaseHistory from "./pages/Dashboard/PurchaseHistory";
 
 import StudentProtected from "./Protected Route/StudentProtected";
 import InstructorProtected from "./Protected Route/InstructorProtected";
@@ -33,7 +17,9 @@ const Login = lazy(() => import("./pages/Login"));
 const VerifyMail = lazy(() => import("./pages/VerifyMail"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
-const ResetPassword = lazy(() => import("./pages/Reset Password/ResetPassword"));
+const ResetPassword = lazy(() =>
+  import("./pages/Reset Password/ResetPassword")
+);
 const UpdatePassword = lazy(() => import("./pages/UpdatePassword"));
 
 const MyProfile = lazy(() => import("./pages/Dashboard/MyProfile"));
@@ -47,7 +33,6 @@ const AddCourse = lazy(() => import("./pages/Dashboard/Instructor/AddCourse"));
 // pages import
 
 const App = () => {
-
   const isAuth = useSelector((state) => state.auth.token);
   const userRole = useSelector((state) => state.auth.userRole);
 
@@ -58,40 +43,49 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
 
-            <Route element = {<HomeRedirect isAuth={isAuth}/>}>
+            <Route element={<HomeRedirect isAuth={isAuth} />}>
               <Route path="/auth/signup" element={<Signup />} />
               <Route path="/auth/login" element={<Login />} />
-              <Route path="/auth/user/verify-otp" element={<VerifyMail />}/>
+              <Route path="/auth/user/verify-otp" element={<VerifyMail />} />
             </Route>
 
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/reset-password/:id" element={<UpdatePassword />} />
 
-            <Route path="/about" element={<AboutPage />}/>
-            <Route path = "/contact" element={<ContactPage />}/>
-            <Route path="/reset-password" element={<ResetPassword />}/>
-            <Route path="/reset-password/:id" element={<UpdatePassword />}/>
-
-            
             {/* Dashboard Protected HOC (This will ensure that the user is authenticated) This HOC will be useful for the common routes between student and instructor */}
-            
-            <Route element = {<DashboardProtected isAuth={isAuth}/>}>
-              <Route path="/dashboard/my-profile" element={<MyProfile />}/>
-              <Route path="/dashboard/settings" element={<Settings />}/>
+
+            <Route element={<DashboardProtected isAuth={isAuth} />}>
+              <Route path="/dashboard/my-profile" element={<MyProfile />} />
+              <Route path="/dashboard/settings" element={<Settings />} />
             </Route>
 
-            <Route element={<StudentProtected isAuth={isAuth} userRole={userRole}/>}>
-              <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses />}/>
-              <Route path="/dashboard/cart" element={<Cart />}/>
-              <Route path="/dashboard/purchase-history" element={<PurchaseHistory />}/>
+            <Route
+              element={<StudentProtected isAuth={isAuth} userRole={userRole} />}
+            >
+              <Route
+                path="/dashboard/enrolled-courses"
+                element={<EnrolledCourses />}
+              />
+              <Route path="/dashboard/cart" element={<Cart />} />
+              <Route
+                path="/dashboard/purchase-history"
+                element={<PurchaseHistory />}
+              />
             </Route>
 
-            <Route element={<InstructorProtected isAuth={isAuth} userRole={userRole}/>}>
-              <Route path="/dashboard/add-course" element={<AddCourse />}/>
+            <Route
+              element={
+                <InstructorProtected isAuth={isAuth} userRole={userRole} />
+              }
+            >
+              <Route path="/dashboard/add-course" element={<AddCourse />} />
             </Route>
-          
 
             <Route path="*" element={<Error />} />
-            </Routes>
-          </Suspense>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
   );

@@ -5,7 +5,7 @@ import Navbar from '../Header/Navbar'
 const MainWrapper = ({children}) => {
   return (
     <>
-        <div className='min-h-screen w-screen bg-richblack-900'>
+        <div className='min-h-screen w-screen max-w-[1600px]'>
             <Navbar />
             {children}
             <Footer />

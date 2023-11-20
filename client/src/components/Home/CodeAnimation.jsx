@@ -12,7 +12,7 @@ const CodeAnimation = ({ code }) => {
         <div className="code-animation-gradient absolute w-[20%] h-[50%] blur-[50px] rounded-full"></div>
 
         <div className="text-yellow-100">
-          {codeLines.map((line, index) => (
+          {codeLines.map((_, index) => (
             <p key={index}>{index + 1}</p>
           ))}
         </div>
@@ -24,7 +24,7 @@ const CodeAnimation = ({ code }) => {
             cursor={true}
             speed={65}
             omitDeletionAnimation={true}
-            className="block whitespace-pre-line text-lg code-animation border-none"
+            className="whitespace-pre-line text-lg"
           />
         </div>
       </div>
