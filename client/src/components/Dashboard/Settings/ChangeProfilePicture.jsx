@@ -56,7 +56,7 @@ const ChangeProfilePicture = () => {
   }
 
   return (
-    <div className="flex items-center rounded-md bg-blue-800 p-8 px-12 text-richblack-5 my-5">
+    <div className="flex items-center rounded-md bg-richblack-800 p-8 px-12 text-richblack-5 my-5">
       {/* profile picture */}
       <div className="flex items-center gap-x-4 bg-yellow-400 w-[70px] h-[70px] rounded-full overflow-hidden">
         <img

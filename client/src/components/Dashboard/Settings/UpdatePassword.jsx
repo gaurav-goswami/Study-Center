@@ -32,7 +32,7 @@ const UpdatePassword = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richbl-700 bg-richblue-800 p-8 px-12">
+        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richbl-700 bg-richblack-800 p-8 px-12">
           <h2 className="text-lg font-semibold text-richblack-5">Password</h2>
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
@@ -44,7 +44,7 @@ const UpdatePassword = () => {
                 name="currentPassword"
                 id="oldPassword"
                 placeholder="Enter Current Password"
-                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblue-700 placeholder:text-pure-greys-400 w-[100%]"
+                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblack-700 placeholder:text-pure-greys-400 w-[100%]"
                 value={passwordData.currentPassword}
                 onChange={(e) => handleChange(e)}
               />
@@ -68,7 +68,7 @@ const UpdatePassword = () => {
                 name="newPassword"
                 id="newPassword"
                 placeholder="Enter New Password"
-                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblue-700 placeholder:text-pure-greys-400 w-[100%]"
+                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblack-700 placeholder:text-pure-greys-400 w-[100%]"
                 value={passwordData.newPassword}
                 onChange={(e) => handleChange(e)}
               />

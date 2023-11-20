@@ -12,7 +12,7 @@ const MyProfile = () => {
   return (
     <>
       <DashboardWrapper>
-        <div className="flex flex-col w-full md:w-[60%] mx-auto py-8">
+        <div className="flex flex-col w-full md:w-[80%] lg:w-[1200px] mx-auto py-8">
           <h1 className="mb-14 text-3xl font-medium text-richblack-5">
             My Profile
           </h1>

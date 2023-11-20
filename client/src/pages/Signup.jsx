@@ -9,6 +9,7 @@ import AuthForm from "../components/common/AuthForm";
 import { sendOTP } from "../lib/AuthApi";
 import { toast } from "react-hot-toast";
 import { setUserDetails } from "../app/features/userDetails";
+import ScreenWrapper from "../components/Wrapper/ScreenWrapper";
 
 const Signup = () => {
   const [signUpDetails, setSignUpDetails] = useState({
@@ -30,36 +31,47 @@ const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const {loading} = useSelector((state) => state.auth);
+  const { loading } = useSelector((state) => state.auth);
 
   const setOtpPage = (e) => {
     e.preventDefault();
-    if(signUpDetails.createPassword !== signUpDetails.confirmPassword) return toast.error("Password field must be same")
-    dispatch(setUserDetails({firstName : signUpDetails.firstName, lastName : signUpDetails.lastName, email : signUpDetails.email, password : signUpDetails.createPassword, confirmPassword : signUpDetails.confirmPassword, accountType : signUpDetails.userRole}))
-    dispatch(sendOTP(sendOtp, {email : signUpDetails.email}, navigate));
-
+    if (signUpDetails.createPassword !== signUpDetails.confirmPassword)
+      return toast.error("Password field must be same");
+    dispatch(
+      setUserDetails({
+        firstName: signUpDetails.firstName,
+        lastName: signUpDetails.lastName,
+        email: signUpDetails.email,
+        password: signUpDetails.createPassword,
+        confirmPassword: signUpDetails.confirmPassword,
+        accountType: signUpDetails.userRole,
+      })
+    );
+    dispatch(sendOTP(sendOtp, { email: signUpDetails.email }, navigate));
   };
 
   return (
     <>
-      <MainWrapper>
-        <div className="w-[90%] md:w-[80%] xl:w-[70%] mx-auto flex flex-col gap-6 my-16 items-center">
-          <Heading style="text-3xl md:text-5xl xl:text-6xl text-center font-extrabold">
-            Join the community and{" "}
-            <HighLightText color="text-yellow-200">
-              start your Journey
-            </HighLightText>
-          </Heading>
+      <ScreenWrapper>
+        <MainWrapper>
+          <div className="w-[90%] md:w-[80%] xl:w-[70%] mx-auto flex flex-col gap-6 my-16 items-center">
+            <Heading style="text-3xl md:text-5xl xl:text-6xl text-center font-extrabold">
+              Join the community and{" "}
+              <HighLightText color="text-yellow-200">
+                start your Journey
+              </HighLightText>
+            </Heading>
 
-          <AuthForm
-            isSignUp={true}
-            formDetails={signUpDetails}
-            setFormDetails={handleChange}
-            setOtpPage={setOtpPage}
-            loading = {loading}
-          />
-        </div>
-      </MainWrapper>
+            <AuthForm
+              isSignUp={true}
+              formDetails={signUpDetails}
+              setFormDetails={handleChange}
+              setOtpPage={setOtpPage}
+              loading={loading}
+            />
+          </div>
+        </MainWrapper>
+      </ScreenWrapper>
     </>
   );
 };

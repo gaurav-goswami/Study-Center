@@ -40,7 +40,7 @@ const EditProfile = () => {
     <>
       <form onSubmit={handleUpdateProfile}>
         {/* Profile Information */}
-        <div className="my-5 flex flex-col gap-y-6 rounded-md bg-blue-800 p-8 px-12">
+        <div className="my-5 flex flex-col gap-y-6 rounded-md bg-richblack-800 p-8 px-12">
           <h2 className="text-lg font-semibold text-richblack-5">
             Profile Information
           </h2>
@@ -54,7 +54,7 @@ const EditProfile = () => {
                 name="firstName"
                 id="firstName"
                 placeholder="Enter first name"
-                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblue-800 placeholder:text-pure-greys-400 w-full"
+                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblack-700 placeholder:text-pure-greys-400 w-full"
                 value={profileDetails.firstName}
                 onChange={handleChange}
               />
@@ -68,7 +68,7 @@ const EditProfile = () => {
                 name="lastName"
                 id="lastName"
                 placeholder="Enter first name"
-                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblue-800 placeholder:text-pure-greys-400 w-full"
+                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblack-700 placeholder:text-pure-greys-400 w-full"
                 value={profileDetails.lastName}
                 onChange={handleChange}
               />
@@ -84,7 +84,7 @@ const EditProfile = () => {
                 type="date"
                 name="dateOfBirth"
                 id="dateOfBirth"
-                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblue-800 placeholder:text-pure-greys-400 w-full"
+                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblack-700 placeholder:text-pure-greys-400 w-full"
                 value={profileDetails.dateOfBirth}
                 onChange={handleChange}
               />
@@ -97,7 +97,7 @@ const EditProfile = () => {
                 type="text"
                 name="gender"
                 id="gender"
-                className="p-4 rounded-md bg-richblue-800 text-pure-greys-25 cursor-pointer w-full"
+                className="p-4 rounded-md bg-richblack-700 text-pure-greys-25 cursor-pointer w-full"
                 value={profileDetails.gender}
                 onChange={handleChange}
               >
@@ -122,7 +122,7 @@ const EditProfile = () => {
                 name="contactNumber"
                 id="contactNumber"
                 placeholder="Enter Contact Number"
-                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblue-800 placeholder:text-pure-greys-400 w-full"
+                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblack-700 placeholder:text-pure-greys-400 w-full"
                 value={profileDetails.contactNumber}
                 onChange={handleChange}
               />
@@ -136,7 +136,7 @@ const EditProfile = () => {
                 name="about"
                 id="about"
                 placeholder="Enter Bio Details"
-                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblue-800 placeholder:text-pure-greys-400 w-full"
+                className="outline-none px-2 py-4 rounded-md text-pure-greys-25 bg-richblack-700 placeholder:text-pure-greys-400 w-full"
                 value={profileDetails.about}
                 onChange={handleChange}
               />
