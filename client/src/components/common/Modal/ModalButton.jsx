@@ -10,11 +10,7 @@ const ModalButton = ({
   type,
 }) => {
   return (
-    <button
-        disabled={disabled}
-        onClick={onClickFn}
-        type={type}
-    >
+    <button disabled={disabled} onClick={onClickFn} type={type}>
       {children ? (
         <>
           <span>{text}</span>

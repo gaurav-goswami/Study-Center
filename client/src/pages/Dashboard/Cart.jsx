@@ -9,15 +9,12 @@ import CartTotal from "../../components/Dashboard/CartTotal";
 const Cart = () => {
   let { totalItems, cart } = useSelector((state) => state.cart);
 
-  totalItems = [{ id: "1", item: "laptop" }];
-
   return (
     <>
       <DashboardWrapper>
         <div className="w-full md:w-[80%] lg:w-[70%] mx-auto p-6">
           {totalItems > 0 ? (
             <div className="flex w-full md:w-[100%] lg:w-[70%] mx-auto gap-2 md:flex-row flex-col">
-
               <div className="flex flex-col gap-2 md:w-[80%]">
                 {cart.map((cartItem, index) => {
                   return <CartItem key={index} {...cartItem} />;
@@ -25,7 +22,6 @@ const Cart = () => {
               </div>
 
               <CartTotal />
-
             </div>
           ) : (
             <div className="flex h-screen items-center justify-center flex-col gap-4">

@@ -11,8 +11,15 @@ const CartTotal = () => {
     <>
       <div className="flex flex-col bg-richblack-800 p-4">
         <Heading style="text-lg md:text-xl text-pure-greys-200">Total:</Heading>
-        <Paragraph color="text-yellow-100" styles="text-xl md:text-2xl font-semibold">{cartTotal}</Paragraph>
-        <Button path="/" styles="bg-yellow-200">Buy Now</Button>
+        <Paragraph
+          color="text-yellow-100"
+          styles="text-xl md:text-2xl font-semibold"
+        >
+          {cartTotal}
+        </Paragraph>
+        <Button path="/" styles="bg-yellow-200">
+          Buy Now
+        </Button>
       </div>
     </>
   );
